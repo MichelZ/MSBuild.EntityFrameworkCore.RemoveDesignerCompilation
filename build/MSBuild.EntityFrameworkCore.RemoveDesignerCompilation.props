@@ -6,7 +6,8 @@
     <RDC_TaskFolder>$(MSBuildThisFileDirectory)..\tasks\netstandard2.0</RDC_TaskFolder>
     <!--Reference to the assembly which contains the MSBuild Task-->
     <RDC_CustomTasksAssembly>$(RDC_TaskFolder)\$(MSBuildThisFileName).dll</RDC_CustomTasksAssembly>
-    <DefaultItemExcludes>$(DefaultItemExcludes);**\*.Designer.cs</DefaultItemExcludes>
+    <DefaultItemExcludesInProjectFolder>$(DefaultItemExcludesInProjectFolder);**\*.Designer.cs</DefaultItemExcludesInProjectFolder>
+    <RDC_Enable>true</RDC_Enable>
   </PropertyGroup>
 
   <!--Register our custom task-->

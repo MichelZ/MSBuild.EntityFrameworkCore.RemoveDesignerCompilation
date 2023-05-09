@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IsPackable>true</IsPackable>
-    <Version>0.1.0-alpha5</Version>
+    <Version>0.1.0-alpha6</Version>
     <Title>MSBuild.EntityFrameworkCore.RemoveDesignerCompilation</Title>
     <Authors>GitHub Collaborators</Authors>
     <Description>Makes sure that only the last N .Designer.cs files from Entity Framework Core Migrations are compiled.</Description>

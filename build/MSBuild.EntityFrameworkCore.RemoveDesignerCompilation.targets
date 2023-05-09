@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <!--A target that generates code, which is executed before the compilation-->
-  <Target Name="EFCoreRemoveDesignerCompilation" BeforeTargets="PreBuildEvent">
+  <Target Name="EFCoreRemoveDesignerCompilation" BeforeTargets="PreBuildEvent" Condition="$(RDC_Enable)">
     <PropertyGroup>
       <RDC_DBContextNamespace Condition="'$(RDC_DBContextNamespace)' == ''">$(RootNamespace)</RDC_DBContextNamespace>
       <RDC_MigrationFilesPath Condition="'$(RDC_MigrationFilesPath)' == ''">$(ProjectDir)\Migrations</RDC_MigrationFilesPath>
@@ -13,6 +13,12 @@
     </EFCoreRemoveDesignerCompilationTask>
     <ItemGroup>
       <Compile Include="@(RDC_LatestDesignerFiles)" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="EFCoreRemoveDesignerCompilationDisabled" BeforeTargets="PreBuildEvent" Condition="!$(RDC_Enable)">
+    <ItemGroup>
+      <Compile Include="**\*.Designer.cs" />
     </ItemGroup>
   </Target>
 </Project>
